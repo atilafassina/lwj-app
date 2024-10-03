@@ -10,42 +10,32 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  APP_CARGO_TOML: src-tauri/Cargo.toml
   CN_APP_SLUG: cn-testing/learn-with-jason
 
 jobs:
   draft:
     runs-on: ubuntu-latest
-    outputs:
-      tag_name: ${{ steps.read_version.outputs.value }}
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v4
 
-      - name: Read version number
-        uses: SebRollen/toml-action@v1.0.2
-        id: read_version
-        with:
-          file: ${{ env.APP_CARGO_TOML }}
-          field: "package.version"
-
       - name: Create draft release
         uses: crabnebula-dev/cloud-release@v0
         with:
-          command: release draft ${{ env.CN_APP_SLUG }} "${{ steps.read_version.outputs.value }}" --framework tauri
+          command: release draft ${{ env.CN_APP_SLUG }}  --framework tauri
           api-key: ${{ secrets.CN_API_KEY }}
 
   build:
     needs: draft
-    runs-on: ${{ matrix.settings.os }}
+    runs-on: ${{ matrix.settings.host }}
     strategy:
       fail-fast: false
       matrix:
         settings:
           # MacOS Intel
-          - host: macos-latest
-            target: x86_64-apple-darwin
+          # - host: macos-latest
+          #   target: x86_64-apple-darwin
           # MacOS Silicon
           - host: macos-latest
             target: aarch64-apple-darwin
@@ -92,7 +82,7 @@ jobs:
       - name: upload assets
         uses: crabnebula-dev/cloud-release@v0
         with:
-          command: release upload ${{ env.CN_APP_SLUG }} "${{ steps.read_version.outputs.value }}" --framework tauri
+          command: release upload ${{ env.CN_APP_SLUG }} --framework tauri
           api-key: ${{ secrets.CN_API_KEY }}
 
   publish:
@@ -104,5 +94,5 @@ jobs:
       - name: publish release
         uses: crabnebula-dev/cloud-release@v0
         with:
-          command: release publish ${{ env.CN_APP_SLUG }} "{ needs.draft.outputs.tag_name }}" --framework tauri
+          command: release publish ${{ env.CN_APP_SLUG }} --framework tauri
           api-key: ${{ secrets.CN_API_KEY }}

@@ -22,6 +22,7 @@
     }
   },
   "bundle": {
+    "createUpdaterArtifacts": true,
     "macOS": {
       "signingIdentity": "-"
     },
@@ -34,5 +35,13 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ]
+  },
+  "plugins": {
+    "updater": {
+      "endpoints": [
+        "https://cdn.crabnebula.app/update/cn-testing/learn-with-jason/{{target}}-{{arch}}/{{current_version}}"
+      ],
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDZCNDI0NDBBOUVCM0Y2Q0EKUldUSzlyT2VDa1JDYTcwWmdUY3J0clJ5Q3lLeTV1K0V4KzlKOTVXZks4Q3RndVVWWXVlT0piWFcK"
+    }
   }
 }

@@ -17,6 +17,7 @@
     "@tauri-apps/plugin-http": "^2.0.0-rc",
     "@tauri-apps/plugin-notification": "^2.0.0-rc",
     "@tauri-apps/plugin-shell": ">=2.0.0-rc.0",
+    "@tauri-apps/plugin-updater": "^2.0.0-rc",
     "dayjs": "^1.11.13",
     "solid-js": "^1.7.8"
   },
