@@ -1,6 +1,5 @@
 {
   "name": "learn-with-jason",
-  "version": "0.1.0",
   "description": "",
   "type": "module",
   "scripts": {
@@ -14,8 +13,10 @@
   "dependencies": {
     "@fontsource/rammetto-one": "^5.1.0",
     "@tauri-apps/api": ">=2.0.0-rc.0",
+    "@tauri-apps/plugin-dialog": "^2.0.0-rc",
     "@tauri-apps/plugin-http": "^2.0.0-rc",
     "@tauri-apps/plugin-notification": "^2.0.0-rc",
+    "@tauri-apps/plugin-process": "^2.0.0-rc",
     "@tauri-apps/plugin-shell": ">=2.0.0-rc.0",
     "@tauri-apps/plugin-updater": "^2.0.0-rc",
     "dayjs": "^1.11.13",

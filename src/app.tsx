@@ -12,6 +12,7 @@ import "./styles.css";
 import { EpisodePreview } from "./episode-preview";
 import { fetch } from "@tauri-apps/plugin-http";
 import { handleNotifications } from "./helpers/notification";
+import { checkForAppUpdates } from "./helpers/updater";
 // const mock = [
 //   {
 //     id: "8a1f6b59-4cb0-4ac8-8cd6-f594d501bd7c",
@@ -159,7 +160,9 @@ function App() {
     setGreetMsg(await invoke("greet", { name: name() }));
   }
 
-  onMount(handleNotifications);
+  onMount(async () => {
+    await Promise.all([handleNotifications(), checkForAppUpdates()]);
+  });
 
   return (
     <main class="bg-gradient pt-2">
