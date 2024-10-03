@@ -3,24 +3,5 @@
   "identifier": "default",
   "description": "Capability for the main window",
   "windows": ["main"],
-  "permissions": [
-    "core:default",
-    "shell:allow-open",
-    {
-      "identifier": "http:default",
-      "allow": [
-        {
-          "url": "https://*.learnwithjason.dev/api/v2/*"
-        }
-      ]
-    },
-    "notification:default",
-    "dialog:default",
-    "process:default",
-    "updater:default",
-    "updater:allow-check",
-    "updater:allow-download",
-    "updater:allow-install",
-    "updater:allow-download-and-install"
-  ]
+  "permissions": []
 }
