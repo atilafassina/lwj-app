@@ -13,6 +13,7 @@ import { EpisodePreview } from "./episode-preview";
 import { fetch } from "@tauri-apps/plugin-http";
 import { handleNotifications } from "./helpers/notification";
 import { checkForAppUpdates } from "./helpers/updater";
+import { message } from "@tauri-apps/plugin-dialog";
 // const mock = [
 //   {
 //     id: "8a1f6b59-4cb0-4ac8-8cd6-f594d501bd7c",
@@ -161,6 +162,12 @@ function App() {
   }
 
   onMount(async () => {
+    await message("Hello from Learn With Jason native App", {
+      title: "You're awesome!",
+      kind: "info",
+      okLabel: "Boop",
+    });
+
     await Promise.all([handleNotifications(), checkForAppUpdates()]);
   });
 
