@@ -1,7 +1,10 @@
-# Tauri + Solid + Typescript
+<div align="center">
 
-This template should help get you started developing with Tauri, Solid and Typescript in Vite.
+# BOOP
 
-## Recommended IDE Setup
+Oh, this Readme has no clues for you.
+You gotta clone it and wait for the livestream.
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+You're [LEARNING TAURI WITH JASON!](https://twitch.tv/jlengstorf)
+
+</div>
