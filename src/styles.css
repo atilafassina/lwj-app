@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --var-gradient: linear-gradient(
+      100deg,
+      hsl(320deg 59% 59%) 0%,
+      hsl(11deg 100% 70%) 10%,
+      hsl(50deg 100% 61%) 20%,
+      hsl(123deg 94% 81%) 30%,
+      hsl(177deg 100% 83%) 40%,
+      hsl(320deg 59% 59%) 50%,
+      hsl(11deg 100% 70%) 60%,
+      hsl(50deg 100% 61%) 70%,
+      hsl(123deg 94% 81%) 80%,
+      hsl(177deg 100% 83%) 90%,
+      hsl(320deg 59% 59%) 100%
+    );
+
+    @apply bg-aubergine-500;
+  }
+}
+
+@layer components {
+  .bg-gradient {
+    background: var(--var-gradient);
+  }
+}
